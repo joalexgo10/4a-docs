@@ -1,0 +1,24 @@
+db.invMatPrimas.insertMany([
+   { "materiaPrima_codigo": 89756,
+    "materiaPrima_categoria_id": "Metal",
+    "materiaPrima_descripcion": "Tornillos",
+    "materiaPrima_existencias": 15,
+    "materiaPrima_unidad": "UND",
+    "proveedoresId": []
+   },
+   { "materiaPrima_codigo": 89756,
+    "materiaPrima_categoria_id": "Metal",
+    "materiaPrima_descripcion": "Puntillas",
+    "materiaPrima_existencias": 1,
+    "materiaPrima_unidad": "Cajas X 100 UND",
+    "proveedoresId": []
+   },
+   { "materiaPrima_codigo": 89756,
+    "materiaPrima_categoria_id": "Metal",
+    "materiaPrima_descripcion": "Clavos",
+    "materiaPrima_existencias": 15,
+    "materiaPrima_unidad": "kg",
+    "proveedoresId": []
+   }
+]     
+)
