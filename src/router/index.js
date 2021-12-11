@@ -2,7 +2,6 @@ import { createRouter, createWebHashHistory } from 'vue-router'
 import Home from '../views/Home.vue'
 import CreacionProveedores from '../components/CreacionProveedores.vue'
 import ConsultaProoveedores from '@/components/ConsultaProoveedores.vue'
-import ActualizacionProveedor from '@/components/ActualizacionProveedor.vue'
 import FormActualizaProveedores from '@/components/FormActualizaProveedores.vue'
 
 const routes = [
@@ -28,11 +27,6 @@ const routes = [
     path: '/consultaProveedores',
     name: 'ConsultaProveedores',
     component: ConsultaProoveedores
-  },
-  {
-    path: '/ActualizacionProveedor',
-    name: 'ActualizacionProveedor',
-    component: ActualizacionProveedor
   },
   {
     path: '/FormActualizaProveedores',

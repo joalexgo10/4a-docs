@@ -47,7 +47,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { mapState } from 'vuex'
 export default {
-  name: 'FormActualizaProveedores',
+  name: 'FormActualizarMateriasPrimas',
 
   data: function () {
     return {}

@@ -49,7 +49,7 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { mapMutations } from 'vuex'
 export default {
-  name: 'ConsultaProveedores',
+  name: 'ConsultaMateriasPrimas',
 
   data: function () {
     return {
@@ -78,7 +78,7 @@ export default {
         this.$router.push({ name: 'ConsultaProveedores' }))
     },
     editarProveedor: function () {
-      this.$router.push({ name: 'FormActualizaProveedores' })
+      this.$router.push({ name: 'FormActualizarProveedores' })
     }
   }
 }

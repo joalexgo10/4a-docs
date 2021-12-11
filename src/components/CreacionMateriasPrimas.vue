@@ -1,51 +1,51 @@
 <template>
   <div>
-    <h1>Creacion Nuevo Proveedor</h1>
+    <h1>Creacion Nueva Materia Prima</h1>
     <!-- <button
       type="button"
       class="btn btn-primary"
-      @click="creacionDeProveedor"
+      @click="creacionDeMateriaPrima"
     >
       Primary
     </button> -->
 
-    <form @submit.prevent="creacionDeProveedor">
+    <form @submit.prevent="creacionDeMateriaPrima">
       <input
-        v-model="proveedor.proveedor_Name"
-        type="text"
-        placeholder="Nombre"
-        style="box-sizing: border-box; padding: 10px 20px; margin: 5px 0; border: 1px solid #283747;"
-      >
-      <br>
-
-      <input
-        v-model="proveedor.proveedor_Telefono"
+        v-model="materiaPrima.materiaPrima_codigo"
         type="num"
-        placeholder="Telefono"
+        placeholder="Codigo de M.P"
         style="box-sizing: border-box; padding: 10px 20px; margin: 5px 0; border: 1px solid #283747;"
       >
       <br>
 
       <input
-        v-model="proveedor.proveedor_Direccion"
+        v-model="materiaPrima.materiaPrima_categoria_id"
         type="text"
-        placeholder="Direccion"
+        placeholder="Categoria"
         style="box-sizing: border-box; padding: 10px 20px; margin: 5px 0; border: 1px solid #283747;"
       >
       <br>
 
       <input
-        v-model="proveedor.proveedor_Email"
+        v-model="materiaPrima.materiaPrima_descripcion"
         type="text"
-        placeholder="e-mail"
+        placeholder="Descripcion"
         style="box-sizing: border-box; padding: 10px 20px; margin: 5px 0; border: 1px solid #283747;"
       >
       <br>
 
       <input
-        v-model="proveedor.proveedor_Nit"
+        v-model="materiaPrima.materiaPrima_existencias"
+        type="num"
+        placeholder="Cantidad disponible"
+        style="box-sizing: border-box; padding: 10px 20px; margin: 5px 0; border: 1px solid #283747;"
+      >
+      <br>
+
+      <input
+        v-model="materiaPrima.materiaPrima_unidad"
         type="text"
-        placeholder="NIT"
+        placeholder="Presentación"
         style="box-sizing: border-box; padding: 10px 20px; margin: 5px 0; border: 1px solid #283747;"
       >
       <br>
@@ -61,34 +61,34 @@ import axios from 'axios'
 import swal from 'sweetalert'
 import { mapState } from 'vuex'
 export default {
-  name: 'CreacionNuevosProveedores',
+  name: 'CreacionMateriasPrimas',
 
   data: function () {
     return {
-      proveedor: {
-        proveedor_Name: '',
-        proveedor_Telefono: '',
-        proveedor_Direccion: '',
-        proveedor_Email: '',
-        proveedor_Nit: ''
+      materiaPrima: {
+        materiaPrima_codigo: '',
+        materiaPrima_categoria_id: '',
+        materiaPrima_descripcion: '',
+        materiaPrima_existencias: '',
+        materiaPrima_unidad: ''
       }
     }
   },
   computed: {
-    ...mapState(['proveedorStore'])
+    ...mapState(['materiaPrimaStore'])
   },
   mounted () {
 
   },
   methods: {
     creacionDeProveedor: function () {
-      axios.post('https://db-aplicacion-web.herokuapp.com/proveedores/', this.proveedor, { headers: {} })
+      axios.post('https://db-aplicacion-web.herokuapp.com/materiasPrimas/', this.materiaPrima, { headers: {} })
         .then((result) => {
           console.log(result)
         },
-        swal('El proveedor se creó exitosamente!', '', 'success')
+        swal('La materia prima se creó exitosamente!', '', 'success')
         )
-      this.proveedor = ''
+      this.materiaPrima = ''
     }
   }
 }
