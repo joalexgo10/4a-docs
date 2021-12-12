@@ -1,64 +1,75 @@
 <template>
+  <div class="logIn_user">
+    <div class="container_logIn_user">
+      <h1>Iniciar sesión</h1>
 
-    <div class="logIn_user">
-        <div class="container_logIn_user">
-            <h1>Iniciar sesión</h1>
-
-            <form v-on:submit.prevent="processLogInUser" >
-                <input type="text" v-model="user.username" placeholder="Username">
-                <br>
-                <input type="password" v-model="user.password" placeholder="Password">
-                <br>
-                <button type="submit">Iniciar Sesion</button>
-            </form>
-        </div>
-
+      <form @submit.prevent="processLogInUser">
+        <input
+          v-model="user.username"
+          type="text"
+          placeholder="Username"
+        >
+        <br>
+        <input
+          v-model="user.password"
+          type="password"
+          placeholder="Password"
+        >
+        <br>
+        <button type="submit">
+          Iniciar Sesion
+        </button>
+      </form>
     </div>
-
+  </div>
 </template>
 
-
-
-
 <script>
-import axios from 'axios';
+import gql from 'graphql-tag'
 
 export default {
-    name: "LogIn",
+  name: 'LogIn',
 
-    data: function(){
-        return {
-            user: {
-                username:"",
-                password:""
-            }
-        }
-    },
-
-    methods: {
-        processLogInUser: function(){
-            axios.post(
-                "https://usuario-c4-p58-ms.herokuapp.com/login/", 
-                this.user,  
-                {headers: {}}
-                )
-                .then((result) => {
-                    let dataLogIn = {
-                        username: this.user.username,
-                        token_access: result.data.access,
-                        token_refresh: result.data.refresh,
-                    }
-                    
-                    this.$emit('completedLogIn', dataLogIn)
-                })
-                .catch((error) => {
-                    
-                    if (error.response.status == "401")
-                        alert("ERROR 401: Credenciales Incorrectas.");
-                    
-                });
-        }
+  data: function () {
+    return {
+      user: {
+        username: '',
+        password: ''
+      }
     }
+  },
+
+  methods: {
+    processLogInUser: async function () {
+      await this.$apollo
+        .mutate({
+          mutation: gql`
+            mutation($credentials: CredentialsInput!) {
+              logIn(credentials: $credentials) {
+                refresh
+                access
+              }
+            }
+          `,
+          variables: {
+            credentials: this.user
+          }
+        })
+        .then((result) => {
+          const dataLogIn = {
+            username: this.user.username,
+            token_access: result.data.logIn.access,
+            token_refresh: result.data.logIn.refresh
+          }
+
+          this.$emit('completedLogIn', dataLogIn)
+          this.user = ''
+        })
+        .catch((error) => {
+          alert('ERROR 401: Credenciales Incorrectas.')
+        })
+    }
+  }
 }
 </script>
 <style>
@@ -68,20 +79,16 @@ export default {
         padding: 0%;
         height: 100%;
         width: 100%;
-    
+
         display: flex;
         justify-content: center;
         align-items: center;
     }
 
-  
-
     .logIn_user h1{
         color: #283747;
 
     }
-
-    
 
     .logIn_user input{
         height: 40px;

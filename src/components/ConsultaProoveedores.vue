@@ -4,8 +4,8 @@
     <button
       type="button"
       class="submit"
-      @click="consultaProveedores"
       style="color: #E5E7E9; background: #283747; border-radius: 5px; padding: 10px 25px; margin: 5px 0 25px 0"
+      @click="consultaProveedores"
     >
       CONSULTAR
     </button>
@@ -32,10 +32,13 @@
             >
               Editar
             </button>
-            <button class="btn btn-danger btn-sm" @click=" eliminar(proveedor.proveedorId); consultaProveedores;">
+            <button
+              class="btn btn-danger btn-sm"
+              @click=" eliminar(proveedor.proveedorId); consultaProveedores;"
+            >
               Eliminar
-             </button>
-             </div>
+            </button>
+          </div>
         </div>
       </div>
     </div>

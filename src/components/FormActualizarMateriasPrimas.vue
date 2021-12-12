@@ -1,38 +1,40 @@
 <template>
   <div>
-    <h1 style="color: var(--bs-light);font-size: 30px">Actualización De Proveedor</h1>
+    <h1 style="color: var(--bs-light);font-size: 30px">
+      Actualización De Proveedor
+    </h1>
 
     <form @submit.prevent="editar(proveedorStore.proveedorId)">
       <input
         v-model="proveedorStore.proveedor_Name"
         type="text"
         placeholder="Nombre"
-      />
-      <br />
+      >
+      <br>
       <input
         v-model="proveedorStore.proveedor_Telefono"
         type="num"
         placeholder="Telefono"
-      />
-      <br />
+      >
+      <br>
       <input
         v-model="proveedorStore.proveedor_Direccion"
         type="text"
         placeholder="Direccion"
-      />
-      <br />
+      >
+      <br>
       <input
         v-model="proveedorStore.proveedor_Email"
         type="text"
         placeholder="e-mail"
-      />
-      <br />
+      >
+      <br>
       <input
         v-model="proveedorStore.proveedor_Nit"
         type="text"
         placeholder="NIT"
-      />
-      <br />
+      >
+      <br>
       <button type="submit">
         ACTUALIZAR
       </button>

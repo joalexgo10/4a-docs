@@ -1,17 +1,17 @@
 <template>
   <div>
-    <h1>Consulta de Proveedores</h1>
+    <h1>Consulta todas las materias primas</h1>
     <button
       type="button"
       class="submit"
-      @click="consultaProveedores"
       style="color: #E5E7E9; background: #283747; border-radius: 5px; padding: 10px 25px; margin: 5px 0 25px 0"
+      @click="consultaMariasPrimas"
     >
       CONSULTAR
     </button>
 
     <div
-      v-for="(proveedor, index) of proveedores"
+      v-for="(materiaPrimas, index) of materiasPrimas"
       :key="index"
       class="mt-3"
     >
@@ -21,21 +21,9 @@
       >
         <div class="d-flex justify-content-between align-items-center">
           <div>
-            Nombre: {{ proveedor.proveedorId }}-{{ proveedor.proveedor_Name }} <br>
-            Telefono: {{ proveedor.proveedor_Telefono }} <br>
-            Direccion: {{ proveedor.proveedor_Direccion }} <br>
+            Descripcion: {{ materiaPrimas.materiaPrima_descripcion }} {{ materiaPrimas.materiaPrima_existencias }} {{materiaPrimas.materiaPrima_unidad }} <br>
+            Categoria: {{ materiaPrimas.materiaPrima_categoria_id }} <br>
           </div>
-          <div>
-            <button
-              class="btn btn-success btn-sm"
-              @click=" definirProveedorStore(proveedor); editarProveedor();"
-            >
-              Editar
-            </button>
-            <button class="btn btn-danger btn-sm" @click=" eliminar(proveedor.proveedorId); consultaProveedores;">
-              Eliminar
-             </button>
-             </div>
         </div>
       </div>
     </div>
@@ -45,6 +33,7 @@
 </template>
 
 <script>
+import gql from 'graphql-tag'
 import axios from 'axios'
 import swal from 'sweetalert'
 import { mapMutations } from 'vuex'
@@ -53,33 +42,38 @@ export default {
 
   data: function () {
     return {
-      proveedores: {}
+      userId: parseInt(localStorage.getItem('userId')),
+      materiasPrimas: {}
     }
   },
   methods: {
-    ...mapMutations(['definirProveedorStore']),
-    consultaProveedores: function () {
-      axios
-        .get('https://db-aplicacion-web.herokuapp.com/proveedores/', {
-          headers: {}
+    consultaMariasPrimas: async function () {
+      await this.$apollo
+        .query({
+          query: gql`
+query($userId: Int!) {
+getAllMateriasPrimas(userId: $userId) {
+    materiaPrima_codigo
+    materiaPrima_categoria_id
+    materiaPrima_descripcion
+    materiaPrima_existencias
+    materiaPrima_unidad
+    proveedoresId
+}
+}
+`,
+          variables: {
+            userId: this.userId
+          }
         })
         .then((result) => {
-          this.proveedores = result.data
+          this.materiasPrimas = result.data.getAllMateriasPrimas
         })
-    },
-    eliminar: function (idCambio) {
-      axios.delete('https://db-aplicacion-web.herokuapp.com/actualizar/' + idCambio + '/', this.proveedorStore)
-        .then((result) => {
-          console.log(result)
-          console.log(idCambio)
-          location.reload()
-        },
-        swal('El proveedor se eliminó exitosamente!', '', 'success'),
-        this.$router.push({ name: 'ConsultaProveedores' }))
-    },
-    editarProveedor: function () {
-      this.$router.push({ name: 'FormActualizarProveedores' })
+        .catch((error) => {
+          alert('ERROR: En la consulta de materias primas.')
+        })
     }
+
   }
 }
 </script>

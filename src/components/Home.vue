@@ -1,26 +1,22 @@
 <template>
-
-    <div class="greetings">
-        <h1>¡Bienvenido  <span> {{username}} </span>!</h1>
-    </div>
-
+  <div class="greetings">
+    <h1>¡Bienvenido  <span> {{ username }} </span>!</h1>
+  </div>
 </template>
-
 
 <script>
 
 export default {
-    name: "Home",
+  name: 'Home',
 
-    data: function(){
-        return {
-            username: localStorage.getItem('username') || "none"
-        }
+  data: function () {
+    return {
+      username: localStorage.getItem('username') || 'none'
     }
+  }
 }
 
 </script>
-
 
 <style>
     .greetings{
@@ -28,7 +24,7 @@ export default {
         padding: 0%;
         height: 100%;
         width: 100%;
-    
+
         display: flex;
         justify-content: center;
         align-items: center;

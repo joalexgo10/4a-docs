@@ -1,5 +1,5 @@
-import { createRouter, createWebHistory } from "vue-router";
-import App from './App.vue';
+import { createRouter, createWebHistory } from 'vue-router'
+import App from './App.vue'
 
 import LogIn from './components/LogIn.vue'
 import SignUp from './components/SignUp.vue'
@@ -12,70 +12,69 @@ import FormActualizaMateriasPrimas from './components/FormActualizarMateriasPrim
 import ConsultaMateriasPrimas from './components/ConsultaMateriasPrimas.vue'
 import CreacionMateriasPrimas from './components/CreacionMateriasPrimas.vue'
 
-
 const routes = [{
-        path: '/',
-        name: 'root',
-        component: App
-    },
-    {
-        path: '/user/logIn',
-        name: "logIn",
-        component: LogIn
-    },
-    {
-        path: '/user/signUp',
-        name: "signUp",
-        component: SignUp
-    },
-    {
-        path: '/user/home',
-        name: "home",
-        component: Home
-    },
-    {
-        path: '/user/account',
-        name: "account",
-        component: Account
-    },
-    {
-        path: '/creacionProveedores',
-        name: 'CreacionProveedores',
-        component: CreacionProveedores
-      },
-      {
-        path: '/consultaProveedores',
-        name: 'ConsultaProveedores',
-        component: ConsultaProoveedores
-      },
-      {
-        path: '/FormActualizaProveedores',
-        name: 'FormActualizaProveedores',
-        component: FormActualizaProveedores
-      },
+  path: '/',
+  name: 'root',
+  component: App
+},
+{
+  path: '/user/logIn',
+  name: 'logIn',
+  component: LogIn
+},
+{
+  path: '/user/signUp',
+  name: 'signUp',
+  component: SignUp
+},
+{
+  path: '/user/home',
+  name: 'home',
+  component: Home
+},
+{
+  path: '/user/account',
+  name: 'account',
+  component: Account
+},
+{
+  path: '/creacionProveedores',
+  name: 'CreacionProveedores',
+  component: CreacionProveedores
+},
+{
+  path: '/consultaProveedores',
+  name: 'ConsultaProveedores',
+  component: ConsultaProoveedores
+},
+{
+  path: '/FormActualizaProveedores',
+  name: 'FormActualizaProveedores',
+  component: FormActualizaProveedores
+},
 
-      {
-        path: '/creacionMateriasPrimas',
-        name: 'CreacionMateriasPrimas',
-        component: CreacionMateriasPrimas
-      },
+{
+  path: '/creacionMateriasPrimas',
+  name: 'CreacionMateriasPrimas',
+  component: CreacionMateriasPrimas
+},
 
-      {
-        path: '/consultaMateriasPrimas',
-        name: 'ConsultaMateriasPrimas',
-        component: ConsultaMateriasPrimas
-      },
+{
+  path: '/consultaMateriasPrimas',
+  name: 'ConsultaMateriasPrimas',
+  component: ConsultaMateriasPrimas
+},
 
-      {
-        path: '/FormActualizarMateriasPrimas',
-        name: 'FormActualizarMateriasPrimas',
-        component: FormActualizaMateriasPrimas
-      }
-];
+{
+  path: '/FormActualizarMateriasPrimas',
+  name: 'FormActualizarMateriasPrimas',
+  component: FormActualizaMateriasPrimas
+}
+]
 
 const router = createRouter({
-    history: createWebHistory(),
-    routes,
-});
+  history: createWebHistory(),
+  routes
+})
 
-export default router;
+export default router
