@@ -1,48 +1,16 @@
 {
-  "name": "muebles-base",
-  "version": "0.1.0",
-  "private": true,
-  "scripts": {
-    "serve": "vue-cli-service serve --skip-plugins @vue/cli-plugin-eslint",
-    "build": "vue-cli-service build",
-    "lint": "vue-cli-service lint"
-  },
-  "dependencies": {
-    "@apollo/client": "^3.5.6",
-    "@popperjs/core": "^2.10.2",
-    "@vue/apollo-composable": "^4.0.0-alpha.16",
-    "@vue/apollo-option": "^4.0.0-alpha.16",
-    "apollo-link-context": "^1.0.20",
-    "axios": "^0.23.0",
-    "bootstrap": "^5.1.3",
-    "core-js": "^3.6.5",
-    "graphql": "^15.8.0",
-    "graphql-tag": "^2.12.6",
-    "jwt-decode": "^3.1.2",
-    "sweetalert": "^2.1.2",
-    "vue": "^3.0.0",
-    "vue-router": "^4.0.0-0",
-    "vuex": "^4.0.2"
-  },
-  "devDependencies": {
-    "@vue/cli-plugin-babel": "~4.5.0",
-    "@vue/cli-plugin-eslint": "~4.5.0",
-    "@vue/cli-plugin-router": "~4.5.0",
-    "@vue/cli-plugin-vuex": "~4.5.0",
-    "@vue/cli-service": "~4.5.0",
-    "@vue/compiler-sfc": "^3.0.0",
-    "@vue/eslint-config-standard": "^5.1.2",
-    "babel-eslint": "^10.1.0",
-    "eslint": "^6.7.2",
-    "eslint-plugin-import": "^2.20.2",
-    "eslint-plugin-node": "^11.1.0",
-    "eslint-plugin-promise": "^4.2.1",
-    "eslint-plugin-standard": "^4.0.0",
-    "eslint-plugin-vue": "^8.0.0"
-  },
-  "browserslist": [
-    "> 1%",
-    "last 2 versions",
-    "not dead"
-  ]
+    "name": "apigateway",
+    "version": "0.0.1",
+    "description": "Api Gateway Banco MisionTIC",
+    "main": "src/index",
+    "scripts": {},
+    "author": "Juan Camilo Castro",
+    "license": "MIT",
+    "dependencies": {
+        "apollo-datasource-rest": "^3.1.1",
+        "apollo-server": "^3.1.2",
+        "graphql": "^15.5.1",
+        "lodash": "^4.17.21",
+        "node-fetch": "^2.6.1"
+    }
 }
