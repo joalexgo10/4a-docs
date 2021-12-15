@@ -38,63 +38,67 @@
       style="height: 600px;background-image: url(https://fondosmil.com/fondo/27751.jpg);background-position: center;background-size: cover;"
     >
       <div id="nav">
-        | <router-link to="/user/logIn">
+         <router-link v-if="!is_auth" to="/user/logIn">
           <v-btn
             type="button"
             class="btn btn-success"
           >
             Iniciar Sesión
           </v-btn>
-        </router-link> |
-        <router-link to="/user/signUp">
+        </router-link>
+         
+        <router-link v-if="!is_auth" to="/user/signUp">
           <v-btn
             type="button"
             class="btn btn-success"
           >
             Registrarse
           </v-btn>
-        </router-link> |
+        </router-link> 
 
-        <router-link to="/creacionProveedores">
+        <router-link v-if="is_auth" to="/creacionProveedores">
           <v-btn
             type="button"
             class="btn btn-success"
           >
             Creación de Proveedores
           </v-btn>
-        </router-link>  |
-        <router-link to="/consultaProveedores">
+        </router-link>  
+        <router-link v-if="is_auth" to="/consultaProveedores">
           <v-btn
             type="button"
             class="btn btn-success"
           >
             Consulta de Proveedores
           </v-btn>
-        </router-link> |
-        <router-link to="/creacionMateriasPrimas">
+        </router-link> 
+        <router-link v-if="is_auth" to="/creacionMateriasPrimas">
           <v-btn
             type="button"
             class="btn btn-success"
           >
             Creación de Materias Primas
           </v-btn>
-        </router-link> |
-        <router-link to="/consultaMateriasPrimas">
+        </router-link> 
+        <router-link v-if="is_auth" to="/consultaMateriasPrimas">
           <v-btn
             type="button"
             class="btn btn-success"
           >
             Consulta de Materias Primas
           </v-btn>
-        </router-link> |
 
-        <v-btn
+
+        </router-link> 
+
+        <v-btn v-if="is_auth" id="btn_cerrarSesion"
           type="button"
           class="btn btn-success"
           @click="logOut"
         >
           Cerrar sesion
         </v-btn>
+
       </div>
     </div>
   </div>
@@ -183,11 +187,18 @@ body {
 
 #nav {
   padding: 30px;
+  display: flex;
+  justify-content: center;  
 }
 
-#nav a {
+#nav a{
   font-weight: bold;
   color: #2c3e50;
+  margin-left: 10px;
+}
+
+#nav #btn_cerrarSesion{
+  margin-left: 10px;
 }
 
 #nav a.router-link-exact-active {

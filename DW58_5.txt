@@ -1,0 +1,46 @@
+Repositorio del proyecto del Ciclo 4:
+
+https://github.com/joalexgo10/4a-docs
+
+El repositorio tiene 5 ramas:
+
+master           Documentación básica del proyecto
+apigateway       Apigateway
+ms1              Servicio de autenticación en Python, Django
+ms2              Servicio de materias primas en Java, Springboot
+frontend2        Frontend de la aplicacion
+
+Por otro lado el backend, para Proveedores, utilizado del ciclo 3 se puede consultar en:
+
+https://github.com/andresisantosleon/aplicacionweb-Ciclo4-BaseBackend
+
+Jira: https://5p58c4.atlassian.net/jira/software/projects/SM/boards/1/roadmap
+
+Links de despliegue:
+
+Frontend:                               https://frontend-stockwood.herokuapp.com/
+Materias primas en Java, Springboot:    https://ms-mp-stockwood-d.herokuapp.com/
+Autenticación en Python, Django:        https://usuario-c4-p58-ms.herokuapp.com
+Micro servicio de proveedores:          https://db-aplicacion-web.herokuapp.com/
+
+
+
+Autores:
+
+Diana Rojas Montenegro
+rojasmontenegrodiana@gmail.com
+
+Angee Melisa Ramírez Ruiz
+angeemelisaramirez@gmail.com
+
+José Daniel Rojas Echeverri
+josuedaniel729@gmail.com
+
+Jonathan Alexander Gómez Yopasa
+joalexgo20326@gmail.com
+
+Faiber Daniel Lara Suárez
+fadalasu2105@gmail.com
+
+Andres Santos León
+andresisantosleon@gmail.com
